@@ -10,12 +10,14 @@
  *****************************************************************************/
 /**
  * @file <Add stats.h
- * @brief General file for 
+ * @brief Header file for first assignment of Introduction to Embedded Systems Software and Development Environments Coursera course
  *
- * <Add Extended Description Here>
+ * Contains function definitions and information regarding stats.c which takes in an array and orders the elemets 
+ * of the array in decending order as well as displays some information regarding the statistics of the elements of the array 
+ * (median, mean, maximum, and minimum).
  *
  * @author Eliav Maas
- * @date <Add date >
+ * @date September 19, 2021
  *
  */
 #ifndef __STATS_H__
@@ -62,7 +64,6 @@ void print_array(unsigned char * array_ptr, unsigned int array_size);
  */
 unsigned char find_median(unsigned char * array_ptr, unsigned int array_size);
 
-
 /**
  * @brief - Calculates mean
  *
@@ -107,14 +108,14 @@ unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size);
  *
  * This function sorts the elements of an array from largest to smallest given an 
  * unisgned char pointer to the array and and unsized int of the size of the array.
- * An unsigned char pointer to an ordered array is returned
+ * The input pointer now points to a sorted array.
  *
  * @param array_ptr Pointer to array 
  * @param array_size Size of array 
  *
- * @return sorted_array_ptr pointer to ordered array
+ * @return void
  */
-unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size);
+void sort_array(unsigned char * array_ptr, unsigned int array_size);
 
 
 #endif /* __STATS_H__ */

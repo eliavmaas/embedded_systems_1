@@ -10,12 +10,13 @@
  *****************************************************************************/
 /**
  * @file stats.c
- * @brief <Add Brief Description Here >
+ * @brief First assignment of Introduction to Embedded Systems Software and Development Environments  Coursera course
  *
- * <Add Extended Description Here>
+ * This program takes in an array and orders the elemets of the array in decending order as well as displays
+ * some information regarding the statistics of the elements of the array (median, mean, maximum, and minimum).
  *
  * @author Eliav Maas
- * @date <Add date >
+ * @date September 19, 2021
  *
  */
 
@@ -43,9 +44,9 @@ void main() {
   // printf("hello\n");
   // printf("%d", test[1]<test[2]);
   // printf("\nhello");
-  unsigned char * sorted = sort_array(test, size);
+  sort_array(test, size);
   printf("Sorted Array:\n");
-  print_array(sorted, size);
+  print_array(test, size);
   print_statistics(test, size);
   }
 
@@ -54,8 +55,12 @@ void main() {
 void print_statistics(unsigned char * array_ptr, unsigned int array_size){
   // unsigned char median = find_median(array_ptr, array_size);
   unsigned char mean = find_mean(array_ptr, array_size);
+  unsigned char min = find_minimum(array_ptr, array_size);
+  unsigned char max = find_maximum(array_ptr, array_size);
   printf("~~~~~Statistics Report~~~~~\n");
   printf("Mean:%d\n", mean);
+  printf("Minimum:%d\n", min);
+  printf("Maximum:%d\n", max);
 }
 void print_array(unsigned char * array_ptr, unsigned int array_size){
   int i;
@@ -101,16 +106,12 @@ unsigned char find_mean(unsigned char * array_ptr, unsigned int array_size){
   for(i = 0; i < array_size; i++){
     average += (int)*array_ptr;
     array_ptr++;
-    printf("%d\n",average);
   }
-  printf("before dividing: %d",average);
   average = (unsigned char) (average / array_size);
-  printf("after dividing: %d",average);
   return (unsigned char) average;
 }
-unsigned char find_maximimum(unsigned char * array_ptr, unsigned int array_size){
+unsigned char find_maximum(unsigned char * array_ptr, unsigned int array_size){
   int i;
-  unsigned char max;
   if ( array_ptr == 0){
     return 0;
   }
@@ -119,16 +120,11 @@ unsigned char find_maximimum(unsigned char * array_ptr, unsigned int array_size)
     array_size = 1;
   }
   
-  // for(i = 0; i < array_size; i++){
-  //   average += *array_ptr;
-  //   array_ptr++;
-  // }
-
-  return (unsigned char) max;
+  sort_array(array_ptr, array_size);
+  return (unsigned char) array_ptr[0];
 }
 unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size){
   int i;
-  unsigned char min;
   if ( array_ptr == 0){
     return 0;
   }
@@ -136,24 +132,13 @@ unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size){
   if ( array_size <= 0 ) {
     array_size = 1;
   }
-  
-  // for(i = 0; i < array_size; i++){
-  //   average += *array_ptr;
-  //   array_ptr++;
-  // }
 
-  return (unsigned char) min;
+  sort_array(array_ptr, array_size);
+  return (unsigned char) array_ptr[array_size-1];
 }
-unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size){
+void sort_array(unsigned char * array_ptr, unsigned int array_size){
   int i, j;
   unsigned char temp;
-  if ( array_ptr == 0){
-    return 0;
-  }
-  
-  if ( array_size <= 0 ) {
-    array_size = 1;
-  }
   
   for(i = 0; i < array_size; i++){
     for(j=i+1; j < array_size; j++){
@@ -164,7 +149,6 @@ unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size){
       }
     }
   }
-  return array_ptr;
 }
 // Other Useful Functions
 
