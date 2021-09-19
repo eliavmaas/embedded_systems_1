@@ -35,8 +35,9 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-  /* Other Variable Declarations Go Here */
   unsigned int size = SIZE;
+  /* Other Variable Declarations Go Here */
+  
   
   /* Statistics and Printing Functions Go Here */
   printf("Original Array:\n");
@@ -55,9 +56,11 @@ void main() {
 void print_statistics(unsigned char * array_ptr, unsigned int array_size){
   // unsigned char median = find_median(array_ptr, array_size);
   unsigned char mean = find_mean(array_ptr, array_size);
+  unsigned char median = find_median(array_ptr, array_size);
   unsigned char min = find_minimum(array_ptr, array_size);
   unsigned char max = find_maximum(array_ptr, array_size);
   printf("~~~~~Statistics Report~~~~~\n");
+  printf("Mean:%d\n", median);
   printf("Mean:%d\n", mean);
   printf("Minimum:%d\n", min);
   printf("Maximum:%d\n", max);
@@ -74,7 +77,7 @@ void print_array(unsigned char * array_ptr, unsigned int array_size){
   printf("]\n");
 }
 unsigned char find_median(unsigned char * array_ptr, unsigned int array_size){
-int i;
+int i, index, temp;
 unsigned char median = 0;
 if ( array_ptr == 0){
   return 0;
@@ -84,10 +87,15 @@ if ( array_size <= 0 ) {
   array_size = 1;
 }
   
-//   for(i = 0; i < array_size; i++){
-//     average += *array_ptr;
-//     array_ptr++;
-//   }
+  if ( array_size % 2 == 0 ){
+    index = (array_size + 1) / 2 - 1;
+    temp = ((int) array_ptr[index] + (int) array_ptr[index+1])/2;
+    median = (unsigned char) temp;
+  }
+  else{
+    index = (array_size + 1) / 2 - 1;
+    median = array_ptr[index];
+  }
 
   return (unsigned char) median;
 }
