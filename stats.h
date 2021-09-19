@@ -21,7 +21,6 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
 
 /**
  * @brief - Prints statitics of array
@@ -108,13 +107,14 @@ unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size);
  *
  * This function sorts the elements of an array from largest to smallest given an 
  * unisgned char pointer to the array and and unsized int of the size of the array.
+ * An unsigned char pointer to an ordered array is returned
  *
  * @param array_ptr Pointer to array 
  * @param array_size Size of array 
  *
- * @return min Minimum of the array
+ * @return sorted_array_ptr pointer to ordered array
  */
-unsigned char sort_array(unsigned char * array_ptr, unsigned int array_size);
+unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size);
 
 
 #endif /* __STATS_H__ */
