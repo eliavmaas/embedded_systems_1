@@ -9,12 +9,12 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
+ * @file stats.c
  * @brief <Add Brief Description Here >
  *
  * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
+ * @author Eliav Maas
  * @date <Add date >
  *
  */
@@ -34,10 +34,64 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-
+  unsigned int size = SIZE
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
 }
 
 /* Add other Implementation File Code Here */
+int find_mean(unsigned char * array_ptr, unsigned int * array_size){
+  int i;
+  unsigned char average;
+  if ( array_ptr == NULL){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  for(i = 0; i < array_size; i++){
+    average += *array_ptr;
+    array_ptr++;
+  }
+  average = (average / array_size);
+  return (unsigned char) average
+}
+int find_median(unsigned char * array_ptr, unsigned int * array_size){
+  int i;
+  unsigned char median;
+  if ( array_ptr == NULL){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+//   for(i = 0; i < array_size; i++){
+//     average += *array_ptr;
+//     array_ptr++;
+//   }
+ 
+  return (unsigned char) median
+}
+int find_maximimum(unsigned char * array_ptr, unsigned int * array_size){
+  int i;
+  unsigned char max;
+  if ( array_ptr == NULL){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  for(i = 0; i < array_size; i++){
+    average += *array_ptr;
+    array_ptr++;
+  }
+ 
+  return (unsigned char) median
+}
