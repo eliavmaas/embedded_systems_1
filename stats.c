@@ -38,17 +38,35 @@ void main() {
   unsigned int size = SIZE;
   
   /* Statistics and Printing Functions Go Here */
+  printf("Original Array:\n");
   print_array(test, size);
+  // printf("hello\n");
+  // printf("%d", test[1]<test[2]);
+  // printf("\nhello");
+  unsigned char * sorted = sort_array(test, size);
+  printf("Sorted Array:\n");
+  print_array(sorted, size);
+  print_statistics(test, size);
   }
+
+
 // Required Functions
 void print_statistics(unsigned char * array_ptr, unsigned int array_size){
-
+  // unsigned char median = find_median(array_ptr, array_size);
+  unsigned char mean = find_mean(array_ptr, array_size);
+  printf("~~~~~Statistics Report~~~~~\n");
+  printf("Mean:%d\n", mean);
 }
 void print_array(unsigned char * array_ptr, unsigned int array_size){
   int i;
-  for(i = 0; i < array_size; i++){ 
-    printf("%d", array_ptr[i]);
+  int counter = 0;
+  // printf("The Array is:\n");
+  printf("[");
+  for(i = 0; i < array_size-1; i++){ 
+    printf("%d, ", array_ptr[i]);
   }
+  printf("%d", array_ptr[i]);
+  printf("]\n");
 }
 unsigned char find_median(unsigned char * array_ptr, unsigned int array_size){
 int i;
@@ -70,7 +88,8 @@ if ( array_size <= 0 ) {
 }
 unsigned char find_mean(unsigned char * array_ptr, unsigned int array_size){
   int i;
-  unsigned char average;
+  // unsigned char average=0;
+  int average=0;
   if ( array_ptr == 0){
     return 0;
   }
@@ -80,10 +99,13 @@ unsigned char find_mean(unsigned char * array_ptr, unsigned int array_size){
   }
   
   for(i = 0; i < array_size; i++){
-    average += *array_ptr;
+    average += (int)*array_ptr;
     array_ptr++;
+    printf("%d\n",average);
   }
-  average = (average / (unsigned char) array_size);
+  printf("before dividing: %d",average);
+  average = (unsigned char) (average / array_size);
+  printf("after dividing: %d",average);
   return (unsigned char) average;
 }
 unsigned char find_maximimum(unsigned char * array_ptr, unsigned int array_size){
@@ -123,8 +145,8 @@ unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size){
   return (unsigned char) min;
 }
 unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size){
-  int i;
-  unsigned char * sorted_array_ptr;
+  int i, j;
+  unsigned char temp;
   if ( array_ptr == 0){
     return 0;
   }
@@ -133,12 +155,16 @@ unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size){
     array_size = 1;
   }
   
-  // for(i = 0; i < array_size; i++){
-  //   average += *array_ptr;
-  //   array_ptr++;
-  // }
-
-  return sorted_array_ptr;
+  for(i = 0; i < array_size; i++){
+    for(j=i+1; j < array_size; j++){
+      if(array_ptr[j] > array_ptr[i]){
+        temp = array_ptr[i];
+        array_ptr[i] = array_ptr[j];
+        array_ptr[j] = temp;
+      }
+    }
+  }
+  return array_ptr;
 }
 // Other Useful Functions
 
