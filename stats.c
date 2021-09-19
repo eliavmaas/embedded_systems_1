@@ -38,32 +38,109 @@ void main() {
   unsigned int size = SIZE;
   
   /* Statistics and Printing Functions Go Here */
+  print_array(test, size);
   }
+// Required Functions
 void print_statistics(unsigned char * array_ptr, unsigned int array_size){
 
 }
 void print_array(unsigned char * array_ptr, unsigned int array_size){
-
+  int i;
+  for(i = 0; i < array_size; i++){ 
+    printf("%d", array_ptr[i]);
+  }
 }
 unsigned char find_median(unsigned char * array_ptr, unsigned int array_size){
-unsigned char median;
+int i;
+unsigned char median = 0;
+if ( array_ptr == 0){
+  return 0;
+}
+
+if ( array_size <= 0 ) {
+  array_size = 1;
+}
+  
+//   for(i = 0; i < array_size; i++){
+//     average += *array_ptr;
+//     array_ptr++;
+//   }
+
   return (unsigned char) median;
 }
 unsigned char find_mean(unsigned char * array_ptr, unsigned int array_size){
+  int i;
   unsigned char average;
+  if ( array_ptr == 0){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  for(i = 0; i < array_size; i++){
+    average += *array_ptr;
+    array_ptr++;
+  }
+  average = (average / (unsigned char) array_size);
   return (unsigned char) average;
 }
 unsigned char find_maximimum(unsigned char * array_ptr, unsigned int array_size){
+  int i;
   unsigned char max;
+  if ( array_ptr == 0){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  // for(i = 0; i < array_size; i++){
+  //   average += *array_ptr;
+  //   array_ptr++;
+  // }
+
   return (unsigned char) max;
 }
 unsigned char find_minimum(unsigned char * array_ptr, unsigned int array_size){
+  int i;
   unsigned char min;
+  if ( array_ptr == 0){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  // for(i = 0; i < array_size; i++){
+  //   average += *array_ptr;
+  //   array_ptr++;
+  // }
+
+  return (unsigned char) min;
 }
 unsigned char * sort_array(unsigned char * array_ptr, unsigned int array_size){
+  int i;
   unsigned char * sorted_array_ptr;
-  return (unsigned char) sorted_array_ptr;
+  if ( array_ptr == 0){
+    return 0;
+  }
+  
+  if ( array_size <= 0 ) {
+    array_size = 1;
+  }
+  
+  // for(i = 0; i < array_size; i++){
+  //   average += *array_ptr;
+  //   array_ptr++;
+  // }
+
+  return sorted_array_ptr;
 }
+// Other Useful Functions
 
 /* Add other Implementation File Code Here */
 
