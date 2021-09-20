@@ -42,9 +42,6 @@ void main() {
   /* Statistics and Printing Functions Go Here */
   printf("Original Array:\n");
   print_array(test, size);
-  // printf("hello\n");
-  // printf("%d", test[1]<test[2]);
-  // printf("\nhello");
   sort_array(test, size);
   printf("Sorted Array:\n");
   print_array(test, size);
@@ -158,7 +155,3 @@ void sort_array(unsigned char * array_ptr, unsigned int array_size){
     }
   }
 }
-// Other Useful Functions
-
-/* Add other Implementation File Code Here */
-
